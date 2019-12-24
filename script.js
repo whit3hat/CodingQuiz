@@ -4,17 +4,17 @@ var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 
 //Functions
-function buildQuiz()
-function showResults()
-function timer()
+//function buildQuiz()
+//function showResults()
+//function timer()
 
 //Displays Quiz
-buildQuiz();
+//buildQuiz();
 
 //Timer
 var counter = 15;
 var interval = setInterval(function(){
-    document.getElementById('counter').innerHTML=count;
+    document.getElementById('counter').innerHTML=counter;
     counter--;
     if (counter === 0){
         clearInterval(interval);
