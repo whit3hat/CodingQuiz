@@ -34,7 +34,30 @@ quizContainer.innerHTML = output.join('');
 }
 
 //Code for Questions, loop through each one
+myQuestions.forEach( (currentQuestion, questionNumber) => {
 
+});
+
+//store answer choices
+var answers = [];
+
+//each available answer
+for(letter in currentQuestion.answers){
+
+    answers.push(
+        `<label>
+        <input type="radio" name="question${questionNumber}" value="${letter}">
+        ${letter} :
+        ${currentQuestion, answers[letter]}
+        </label>`
+    );
+}
+
+//add question and answers to output
+output.push(
+    `<div class="question">${currentQuestion, questions} </div>
+    <div class="answers">${answers.join('')}</div>`
+);
 
 //Timer
 var counter = 15;
@@ -49,7 +72,7 @@ var interval = setInterval(function(){
 function timer(){
     alert("Times up!");
 }
-//Timer
+
 
 
 
