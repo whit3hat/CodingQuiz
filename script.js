@@ -11,7 +11,23 @@ function timer()
 //Displays Quiz
 buildQuiz();
 
+//Timer
+var counter = 15;
+var interval = setInterval(function(){
+    document.getElementById('counter').innerHTML=count;
+    counter--;
+    if (counter === 0){
+        clearInterval(interval);
+        alert("You're out of time!");
+    }
+}, 1000);
+function timer(){
+    alert("Times up!");
+}
+
 //On Submit show quiz results
 submitButton.addEventListener('click', showResults);
+
+
 
 
