@@ -5,11 +5,13 @@ var submitButton = document.getElementById('submit');
 
 //Functions
 function buildQuiz()
-
 function showResults()
+function timer()
 
 //Displays Quiz
 buildQuiz();
 
 //On Submit show quiz results
 submitButton.addEventListener('click', showResults);
+
+
