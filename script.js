@@ -4,7 +4,7 @@ var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 
 //Functions
-function buildQuiz()
+function buildQuiz(){
 //function showResults()
 //function timer()
 
@@ -25,13 +25,17 @@ questions.forEach(
             );
         }
     output.push(
-        <div class="question">${currentQuestion.question}</div>
-        <div class="answers">${answers.join('')}</div>
+       `<div class="question">${currentQuestion.question}</div>
+        <div class="answers">${answers.join('')}</div>`
     );
     }
 );
 quizContainer.innerHTML = output.join('');
 }
+
+//Code for Questions, loop through each one
+
+
 //Timer
 var counter = 15;
 var interval = setInterval(function(){
