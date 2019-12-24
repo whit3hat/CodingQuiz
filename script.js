@@ -26,8 +26,7 @@ function timer(){
 }
 
 //On Submit show quiz results
-submitButton.addEventListener('click', showResults);
-
+//submitButton.addEventListener('click', showResults);
 
 
 
