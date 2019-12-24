@@ -59,6 +59,37 @@ output.push(
     <div class="answers">${answers.join('')}</div>`
 );
 
+//quiz container for HTML
+quizContainer.innerHTML = output.join('');
+
+//show results loop
+function showResults(){
+    //gather answer container from quiz
+    var answerContainers = quizContainer.querySelectorAll('.answers');
+    //keep track of answers
+    let numCorrect = 0;
+    //each question
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+        //find selected answer
+        var answerContainer = answerContainers[questionNumber];
+        var selector = 'input[name=question'+questionNumber+']:checked';
+        var userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        //if correct
+        if(userAnswer===currentQuestion.correctAnswer){
+            //add to the number of correct answers
+            numCorrect++;
+            //color answers green
+            answerContainer[questionNumber].style.color = 'lightgreen';
+        }
+        else{
+            //color the answers red
+            answerContainer[questionNumber].style.color = 'red';
+        }
+        });
+        // show correct answer totoal
+        resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length; 
+}
+
 //Timer
 var counter = 15;
 var interval = setInterval(function(){
