@@ -4,32 +4,38 @@ var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
 
 //Functions
-function buildQuiz(){
+//function buildQuiz()
 //function showResults()
 //function timer()
 
 //Displays Quiz
-buildQuiz();
+
+function buildQuiz(){
 var output = [];
+//for each question
 questions.forEach(
     (currentQuestion, questionNumber) => {
+        //list of answer choices
         var answers = [];
         for(choice in currentQuestion.answers){
+            //add an HTML radio button
             answers.push(
-                <label>
+                `<label>
                     <input type="radio" name="questions${questionNumber}" value="${choice}">
                         ${choice} :
                         ${currentQuestion.answers[choice]}
                     </input>
-                </label>
+                </label>`
             );
         }
+        //add this question and its answers to the output
     output.push(
        `<div class="question">${currentQuestion.question}</div>
         <div class="answers">${answers.join('')}</div>`
     );
     }
 );
+//combine our output list into one string of HTML and put on page
 quizContainer.innerHTML = output.join('');
 }
 
@@ -89,6 +95,13 @@ function showResults(){
         // show correct answer totoal
         resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length; 
 }
+
+//gather answer containers from quiz
+var answerContainers = quizContainer.querySelectorAll('.answers');
+
+//track users answers
+let numCorrect = 0;
+
 
 //Timer
 var counter = 15;
