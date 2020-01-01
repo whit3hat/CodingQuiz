@@ -6,24 +6,24 @@ const output = [];
 //Code for Questions, loop through each one
 questions.forEach((currentQuestion, questionNumber) => {
  //we want to store the list of answer choices
- const answers = [];
+ const choices = [];
 
 //each available answer
-for (choice in currentQuestion.answers){
+for (choice in currentQuestion.choices){
     //radio HTML buttons
-    answers.push(
+    choices.push(
        `<label>
         <input type="radio" name="question${questionNumber}" value="${choice}">
         ${choice} :
-        ${currentQuestion, answers[choice]}
+        ${currentQuestion.choices[choice]}
         </label>`
     );
 }
 
 //add question and answers to output
 output.push(
-    `<div class="question"> ${currentQuestion.questions} </div>
-    <div class="answers"> ${answers.join("")} </div>`
+    `<div class="question"> ${currentQuestion.title} </div>
+    <div class="answers"> ${choices.join("")} </div>`
   );   
 });
 
@@ -34,7 +34,7 @@ output.push(
 //show results loop
 function showResults() {
     //gather answer container from quiz
-    const answerContainers = quizContainer.querySelectorAll(".answers");
+    const answerContainers = quizContainer.querySelectorAll(".choices");
 
     //keep track of answers
     let numCorrect = 0;
@@ -43,7 +43,7 @@ function showResults() {
     questions.forEach((currentQuestion, questionNumber) => {
         //find selected answer
         const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=questions${questionNumber}]:checked`;
+        const selector = `input[name=title${questionNumber}]:checked`;
         const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
         //if correct
@@ -64,12 +64,6 @@ function showResults() {
         resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`; 
     }
 
-// //gather answer containers from quiz
-// const answerContainers = quizContainer.querySelectorAll('.answers');
-
-// //track users answers
-// let numCorrect = 0;
-
 //Document element constiables
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
@@ -80,7 +74,7 @@ buildQuiz();
 
 // on submit, show results
 submitButton.addEventListener("click", showResults);
-})
+})();
 
 //Timer
 var counter = 15;
@@ -95,12 +89,3 @@ var interval = setInterval(function(){
 function timer(){
     alert("Times up!");
 }
-
-
-
-
-//On Submit show quiz results
-//submitButton.addEventListener('click', showResults);
-
-
-
