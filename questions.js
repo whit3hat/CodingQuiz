@@ -1,27 +1,52 @@
-var questions = [
+const questions = [
   {
     title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts"
+    choices: {
+    a: "strings", 
+    b: "booleans",
+    c: "alerts",
+    d: "numbers",
+    },
+    answer: "c"
   },
   {
     title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"
+    choices: {
+      a: "quotes",
+      b: "curly brackets",
+      c: "parentheses",
+      d: "square brackets",
+    },
+    answer: "c"
   },
   {
     title: "What is the HTML tag under which one can write the JavaScript code?",
-    choices: ["<javascript>", "<scripted>", "<script>", "<js>"],
-    answer: "<scripts>"
+    choices: {
+     a: "&lt;javascript&gt;",
+     b: "&lt;scripted&gt;",
+     c: "&lt;script&gt;",
+     d: "&lt;js&gt;",
+    },
+    answer: "c"
   },
   {
     title: "Which of the following is the correct syntax to display 'foobar' in an alert box using JavaScript?",
-    choices: ["alertbox('foobar');", "msg('foobar');", "msgbox('foobar');", "alert('foobar');"],
-    answer: "alert('foobar');"
+    choices: {
+      a: "alertbox('foobar');",
+      b: "msg('foobar');",
+      c: "msgbox('foobar');",
+      d: "alert('foobar');",
+    },
+    answer: "d"
   },
   {
     title: "What is the correct syntax for referring to an external script called 'foobar.js'?",
-    choices: ["<scripts src='foobar.js'>", "<script href='foobar.js'>", "<script ref='foobar.js'>", "<'script name='foobar.js'>"],
-    answer: "<'scripts src=foobar.js'>"
+    choices: {
+      a: "&lt;scripts src='foobar.js'&gt;",
+      b: "&lt;script href='foobar.js'&gt;",
+      c: "&lt;script ref='foobar.js'&gt;",
+      d: "&lt;'script name='foobar.js'&gt;",
+    },
+    answer: "a"
   },
 ];
