@@ -3,6 +3,12 @@
   const quizContainer = document.getElementById('quiz');
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('submit');
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const slides = document.getElementById('.slide');
+    let currentSlide = 0;
+
+    showSlide(0);
 
   function buildQuiz() {
     //store answer choices
@@ -24,14 +30,13 @@
 
       //add question and answers to output
       output.push(
-        `<div class="title"> ${currentQuestion.title} </div>
+        `div class="slide">
+         <div class="title"> ${currentQuestion.title} </div>
          <div class="choices"> ${choices.join("")} </div>`
       );
     });
 
     const q = output.join("\n");
-
-    console.log(q)
 
     //quiz container for HTML
      quizContainer.innerHTML = q;
@@ -70,7 +75,36 @@
     resultsContainer.innerHTML = `${numCorrect} out of ${questions.length}`;
   }
 
-  
+  //slideshow features for single question per page
+  function slideShow(n){
+    slides[currentSlide].classlist.remove('active-slide');
+      slides[n].classlist.add('active-slide');
+        currentSlide = n;
+
+        if (currentslide === 0 ) {
+          prevButton.style.display = 'none';
+        } else {
+          prevButton.style.display = 'inline-block';
+        }
+
+        if (currentSlide === slides.length - 1) {
+          nextButton.style.display = 'none';
+          submitButton.style.display = 'inline-block';
+            } else {
+              nextButton.style.display = 'inline-block';
+              submitButton.style.display = 'none';
+            }
+  }
+
+  function showNext() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPrev(){
+    showSlide(currentSlide - 1);
+  }
+
+
 
 
   // display quiz right away
@@ -78,6 +112,8 @@
 
   //on submit, show results
   submitButton.addEventListener("click", showResults);
+  prevButton.addEventListener('click' , showPrev);
+  nextButton.addEventListener('click' , showNext);
 })();
 
 // //Timer
