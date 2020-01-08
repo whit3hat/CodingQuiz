@@ -4,6 +4,16 @@
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('submit');
   
+  //variables for slides
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const slides = document.getElementById('.slide');
+  let currentSlide = 0;
+
+  slideShow(0);
+  
+
+  //function to start the quiz
   function buildQuiz() {
     //store answer choices
     const output = [];
@@ -26,14 +36,11 @@
       output.push(
         `div class="slide">
          <div class="title"> ${currentQuestion.title} </div>
-         <div class="choices"> ${choices.join("")} </div>`
+         <div class="choices"> ${choices.join("")} </div>
+         </div>`
       );
     });
-
-    const q = output.join("\n");
-
-    //quiz container for HTML
-     quizContainer.innerHTML = q;
+    quizContainer.innerHTML = output.join('');
   }
 
   //show results loop
@@ -70,48 +77,47 @@
   }
 
   //slideshow features for single question per page
-  function slideShow(n){
+  function slideShow(n) {
     slides[currentSlide].classlist.remove('active-slide');
-      slides[n].classlist.add('active-slide');
-        currentSlide = n;
+    slides[n].classlist.add('active-slide');
+    currentSlide = n;
 
-        if (currentslide === 0 ) {
-          prevButton.style.display = 'none';
-        } else {
-          prevButton.style.display = 'inline-block';
-        }
+    if (currentSlide === 0) {
+      prevButton.style.display = 'none';
+    } else {
+      prevButton.style.display = 'inline-block';
+    }
 
-        if (currentSlide === slides.length - 1) {
-          nextButton.style.display = 'none';
-          submitButton.style.display = 'inline-block';
-            } else {
-              nextButton.style.display = 'inline-block';
-              submitButton.style.display = 'none';
-            }
+    if (currentSlide === slides.length - 1) {
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    } else {
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
   }
-
+  
+  
   function showNext() {
-    showSlide(currentSlide + 1);
+    slideShow(currentSlide + 1);
   }
 
-  function showPrev(){
-    showSlide(currentSlide - 1);
+  function showPrev() {
+    slideShow(currentSlide - 1);
   }
 
   // display quiz right away
   buildQuiz();
 
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-  const slides = document.getElementById('.slide');
-    let currentSlide = 0;
-    
-    showSlide(0);
+
+  
   
   //on submit, show results
   submitButton.addEventListener("click", showResults);
-  prevButton.addEventListener('click' , showPrev);
-  nextButton.addEventListener('click' , showNext);
+  prevButton.addEventListener('click', showPrev);
+  nextButton.addEventListener('click', showNext);
+
+
 })();
 
 // //Timer
