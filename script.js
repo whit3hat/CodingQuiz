@@ -4,14 +4,6 @@
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('submit');
   
-  //variables for slides
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-  const slides = document.getElementById('.slide');
-  let currentSlide = 0;
-
-  slideShow(0);
-  
 
   //function to start the quiz
   function buildQuiz() {
@@ -34,7 +26,7 @@
 
       //add question and answers to output
       output.push(
-        `div class="slide">
+        `<div class="slide">
          <div class="title"> ${currentQuestion.title} </div>
          <div class="choices"> ${choices.join("")} </div>
          </div>`
@@ -110,7 +102,13 @@
   buildQuiz();
 
 
-  
+  //variables for slides
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const slides = document.getElementById('.slide');
+  let currentSlide = 0;
+
+  slideShow(0);
   
   //on submit, show results
   submitButton.addEventListener("click", showResults);
