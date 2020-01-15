@@ -3,9 +3,19 @@
   const quizContainer = document.getElementById('quiz');
   const resultsContainer = document.getElementById('results');
   const submitButton = document.getElementById('submit');
+<<<<<<< HEAD
   
 
   //function to start the quiz
+=======
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const slides = document.getElementById('.slide');
+    let currentSlide = 0;
+
+    showSlide(0);
+
+>>>>>>> parent of c78ab61... Moved slide variables to the bottom line 109, now it shows all questions on one slide
   function buildQuiz() {
     //store answer choices
     const output = [];
@@ -98,9 +108,13 @@
     slideShow(currentSlide - 1);
   }
 
+
+
+
   // display quiz right away
   buildQuiz();
 
+<<<<<<< HEAD
 
   //variables for slides
   const prevButton = document.getElementById('prev');
@@ -110,6 +124,8 @@
 
   slideShow(0);
   
+=======
+>>>>>>> parent of c78ab61... Moved slide variables to the bottom line 109, now it shows all questions on one slide
   //on submit, show results
   submitButton.addEventListener("click", showResults);
   prevButton.addEventListener('click', showPrev);
