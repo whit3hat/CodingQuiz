@@ -98,18 +98,18 @@
     slideShow(currentSlide - 1);
   }
 
-
+//variables for slides
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  const slides = document.getElementById('.slide');
+  let currentSlide = 0;
 
 
   // display quiz right away
   buildQuiz();
 
 
-  //variables for slides
-  const prevButton = document.getElementById('prev');
-  const nextButton = document.getElementById('next');
-  const slides = document.getElementById('.slide');
-  let currentSlide = 0;
+  
 
   slideShow(0);
   
