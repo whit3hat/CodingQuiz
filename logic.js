@@ -1,7 +1,13 @@
 //Document element constiables
-  const quizContainer = document.getElementById('quiz');
+  const quizContainerEl = document.getElementById('quizContainer');
+  const timerEl = document.getElementById('time');
+  const choiceEL = document.getElementById('choices');
+  const submitButtonEl = document.getElementById('submit');
+  const startButtonEl = document.getElementById('start');
+  const initialsEl = document.getElementById('initials');
   const resultsContainer = document.getElementById('results');
-  const submitButton = document.getElementById('submit');
+  
+  
 
 
   //track quiz state
