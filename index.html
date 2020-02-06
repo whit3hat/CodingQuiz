@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
             <title> Coding Quiz </title>
             <!--Link to internal CSS-->
             <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
     
     <body>
-        <h1>javascript Quiz</h1>
-        <div class="quizContainer">
-                <div id="quiz"></div>
+        <!--link to highscores page-->
+        <div class='highScores'><a href='./highscores.html'>See Highscores</a></div>
+        <!--timer div-->
+        <div class='timer'>Time: <span id='time'>0</span></div>
+
+        <div clas='wrapper'>
+          <div id='start-screen' class='start'>
+            <h1>javascript Quiz</h1>
+            <p>
+           Answer the following code-related questions within the alloted time limit.
+           Keep in mind that incorrect answers will lower your score/time by 10 seconds! Best of luck!
+            </p>
+             <button id='start'>Start Quiz</button>
+          </div>
+        
+        <div id="quizContainer" class='hide'>
+           <h2 id='question-title'></h2>
+           <div id='choices' class='choices'></div>
+                
         </div>
-        <button id="prev">Previous Question</button>
-        <button id="next">Next Question</button>
+        
         <button id="submit">Submit Quiz</button>
         <div id="results"></div>
         
-
+        </div>
 <!--JavaScript-->
 <script type="text/javascript" src="./questions.js"></script>
 <script type="text/javascript" src="./script.js"></script>
