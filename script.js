@@ -24,7 +24,7 @@
 
       //add question and answers to output
       output.push(
-        `div class="slide">
+        `<div class="slide">
          <div class="title"> ${currentQuestion.title} </div>
          <div class="choices"> ${choices.join("")} </div>`
       );
