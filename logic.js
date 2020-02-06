@@ -1,3 +1,8 @@
+//track quiz state
+let currentQuestion = 0;
+let time = questions.length * 15;
+let timer;
+
 //Document element constiables
   const quizContainerEl = document.getElementById('quizContainer');
   const timerEl = document.getElementById('time');
@@ -7,10 +12,10 @@
   const initialsEl = document.getElementById('initials');
   const resultsContainer = document.getElementById('results');
   
+
+//Quiz Function
+function startQuiz(){
+
+};
+
   
-
-
-  //track quiz state
-  let currentQuestion = 0;
-  let time = questions.length * 15;
-  let timer;
