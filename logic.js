@@ -114,3 +114,37 @@ function quit() {
     quizContainerEl.setAttribute('class' , 'hide');
 }
 
+function clockTick() {
+    //update time
+    time--;
+    timerEl.textContent = time;
+
+    //check if user is out of time
+    if (time <= 0) {
+        quit();
+    }
+}
+
+function highScore() {
+    //get initials
+    let initials = initialsEl.value.trim();
+
+    //make sure its got letters
+    if (initials !== '') {
+        //get saved score from local storage
+        let highScore = JSON.parse(window.localStorage.getItem('highscores')) || [];
+
+        //format new score for current
+        let newScore = {
+            score: time,
+            initials: initials
+        };
+
+        //save to local storage
+        highScore.push(newScore);
+        window.localStorage.setItem('highscores' , JSON.stringify(highScore));
+
+        //show high scores page
+        window.location.href = 'highscores.html';
+    }
+}
