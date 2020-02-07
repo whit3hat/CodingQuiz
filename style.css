@@ -3,6 +3,11 @@ body{
   font-size: 120%;
 }
 
+.wrapper {
+  margin: 100px auto 0 auto;
+  max-width: 600px;
+}
+
 a{
   color: purple;
   text-decoration: none;
@@ -26,9 +31,15 @@ button {
   transition: background-color 0.1s;
 }
 
-
 button:hover{
     background-color: #38a;
+}
+
+.choices button {
+  display: block;
+}
+input[type='text'] {
+  font-size: 100%;
 }
 
 .question{
@@ -60,4 +71,16 @@ button:hover{
 
 .start {
   text-align: center;
+}
+
+.highScores {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
