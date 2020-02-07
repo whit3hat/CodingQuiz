@@ -29,6 +29,35 @@ function startQuiz(){
     timerEl.textContent = time;
 
     getQuestion();
-};
+}
+
+function Questions(){
+    //current question
+    let currentQuestion = questions[currentQuestion];
+
+    //update with current question
+    let titleEl = document.getElementById('question-title');
+    titleEl.textContent = currentQuestion.title;
+
+    //clear old question choice
+    choiceEL.innerHTML = '';
+
+    //loop through choices
+    currentQuestion.choices.forEach(function(choice, i){
+        //create new button for each question
+        const choiceBtn = document.createElement('button');
+        choiceBtn.setAttribute('class' , 'choice');
+        choiceBtn.setAttribute('value' , choice);
+
+        choiceBtn.textContent = i + 1 + '. ' + choice;
+
+        //click event for choice
+        choiceBtn.onclick = questionClick;
+
+        //display on page
+        choiceEL.appendChild(choiceBtn);
+    });
+        
+}
 
   
