@@ -96,3 +96,21 @@ function Questions(){
          getQuestion();
        }
   }
+
+
+function quit() {
+    //stop time
+    clearInterval(timer);
+
+    //show end page
+    const endScreenEl = document.getElementById('end-screen');
+    endScreenEl.removeAttribute('class');
+
+    //final score
+    let finalScoreEl = document.getElementById('finalScore');
+    finalScoreEl.textContent = time;
+
+    //hide questions
+    quizContainerEl.setAttribute('class' , 'hide');
+}
+
