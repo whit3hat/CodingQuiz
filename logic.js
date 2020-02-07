@@ -148,3 +148,18 @@ function highScore() {
         window.location.href = 'highscores.html';
     }
 }
+
+//check for enter key event
+function enter(event) {
+    if (event.key === 'Enter') {
+        highScore();
+    }
+}
+
+//user clicks submit button
+submitButtonEl.onclick = highScore;
+
+//user starts quiz
+startButtonEl.onclick = startQuiz;
+
+initialsEl.onkeyup = enter;
