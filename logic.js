@@ -60,4 +60,39 @@ function Questions(){
         
 }
 
-  
+  function questionClick() {
+      //check if user is wrong
+      if (this.value !== questions[currentQuestion].answer) {
+          //subtract time if wrong
+          time -= 15;
+
+          if (time < 0) {
+              time = 0;
+          }
+
+          //update time on page
+          timerEl.textContent = time;
+
+          resultsContainer.textContent = 'Sorry, wrong.';
+      } else
+       {
+           resultsContainer.textContent = 'You got it!';
+       }
+
+       //show right/wrong feedback on page for .5 sec
+       resultsContainer.setAttribute('class' , 'feedback');
+       setTimeout(function(){
+           resultsContainer.setAttribute('class' , 'feedback hide');
+       }, 1000);
+
+       //next question
+       currentQuestion++;
+
+       //check if thats the last question
+       if (currentQuestion === questions.length){
+           quit();
+       } else
+       {
+         getQuestion();
+       }
+  }
