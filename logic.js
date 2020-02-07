@@ -15,7 +15,20 @@ let timer;
 
 //Quiz Function
 function startQuiz(){
+    //hide start screen
+    var startScreenEl = document.getElementById('start-screen');
+    startScreenEl.setAttribute('class' , 'hide');
 
+    //show questions
+    quizContainerEl.removeAttribute('class');
+
+    //timer
+    timer = setInterval(clockTick, 1000);
+
+    //show start time
+    timerEl.textContent = time;
+
+    getQuestion();
 };
 
   
